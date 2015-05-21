@@ -1,0 +1,42 @@
+// Grid
+
+.container,
+.row {
+	@include clearfix();
+}
+
+.container {
+	padding: 0 ($gridGutter / 2);
+	margin: 0 auto;
+	@include respond-to(sm) { width: map-get( $containers, sm ); }
+	@include respond-to(md) { width: map-get( $containers, md ); }
+	@include respond-to(lg) { width: map-get( $containers, lg ); }
+	@include respond-to(xl) { width: map-get( $containers, xl ); }
+	@include respond-to(ws) { width: map-get( $containers, ws ); }
+}
+
+.row {
+	margin: 0 ($gridGutter / -2);
+}
+
+.col {
+	display: block;
+	float: left;
+	width:100%;
+	padding: ($gridGutter / 2);
+}
+
+.row.compact {
+	margin: 0;
+}
+
+.container.compact,
+.row.compact > .col,
+.col.compact {
+	padding: 0;
+}
+
+@include make-grid($gridColCount);
+@each $namespace, $breakpoint in $breakpoints {
+    @include make-grid($gridColCount, $namespace, $breakpoint);
+}

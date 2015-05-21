@@ -1,0 +1,31 @@
+// ---------
+// Variables
+// ---------
+
+// fonts
+$remSize: 62.5%; // 10px
+$fontSize: 14px;
+
+// colors
+$brandPrimary: darkorange;
+$brandSecondary: orange;
+
+// grid
+$gridColCount: 6;
+$gridGutter: 30px;
+$breakpoints: (
+	xs: 480px,
+	sm: 768px,
+	md: 992px,
+	lg: 1200px,
+	xl: 1400px,
+	ws: 1900px
+);
+
+$containers: (
+	sm:  720px + $gridGutter,
+	md:  940px + $gridGutter,
+	lg: 1140px + $gridGutter,
+	xl: 1200px + $gridGutter,
+	ws: 1800px + $gridGutter
+);

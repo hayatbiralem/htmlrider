@@ -1,0 +1,61 @@
+// micro clearfix
+@mixin clearfix() {
+	&:before,
+	&:after {
+	  display: table;
+	  content: " ";
+	}
+	&:after {
+	  clear: both;
+	}
+}
+
+// grid
+
+// Source: http://www.sitepoint.com/using-sass-maps/
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+ 
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+@mixin grid($colCount: 6, $namespace: ""){
+
+	@if ($namespace != "") {
+		$namespace: "-#{$namespace}";
+	}
+
+	@for $i from 1 through $colCount {
+		@for $j from 1 through $i {
+			@if($j == 1){
+				.row.equal-cols#{$namespace}-#{$i} > .col,
+				.col#{$namespace}-#{$j}-#{$i} {
+					width: percentage(1 / $i);
+				}
+			} @else {
+				.col#{$namespace}-#{$j}-#{$i} {
+					width: percentage($j / $i);
+				}
+			}
+		}
+	}
+
+}
+
+@mixin make-grid($colCount: 6, $namespace: "", $breakpoint: ""){
+
+	@if ($breakpoint == "") {
+		@include grid($colCount, $namespace);
+	} @else {
+		@media only screen and (min-width: $breakpoint){
+			@include grid($colCount, $namespace);
+		}
+	}
+}

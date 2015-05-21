@@ -1,0 +1,43 @@
+// variables and mixins
+@import 'variables';
+@import 'mixins';
+
+// common
+@import 'app/header';
+@import 'app/content';
+@import 'app/footer';
+
+// pages
+@import 'app/homepage';
+@import 'app/subpage';
+
+// demo
+
+body {
+	padding: 30px 0;
+}
+
+.col > p {
+	margin: 0;
+	padding: 1rem;
+}
+
+.col {
+	background-color: $brandSecondary;
+	background-color: rgba($brandSecondary,.15);
+	border: 1px solid $brandPrimary;
+	border: 1px solid rgba($brandPrimary,.2);
+}
+
+.container {
+	& + .container {
+		margin-top: 30px;
+	}
+}
+
+.row {
+
+	& + .row {
+		margin-top: 30px;
+	}
+}

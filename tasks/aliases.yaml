@@ -1,0 +1,6 @@
+default:
+  - 'sass'
+  - 'concat'
+  - 'replace'
+  - 'connect'
+  - 'watch'
