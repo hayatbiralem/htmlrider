@@ -32,6 +32,7 @@ Working with Grunt
 ===
 
 - Install Node.js
+- npm install -g grunt-cli
 - cd path/to/project-folder
 - npm install
 - grunt
