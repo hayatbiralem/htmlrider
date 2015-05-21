@@ -3,7 +3,7 @@ What is this?
 
 This is my first try to make simple front-end boilerplate and/or framework for myself and other developers. I hope it works :)
 
-TODOS
+Todos
 ===
 
 ### Core
